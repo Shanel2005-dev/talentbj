@@ -100,22 +100,22 @@ export default function LandingPage() {
         <div
           style={{
             position: 'absolute', inset: 0, zIndex: 0,
-            backgroundImage: 'url(https://plus.unsplash.com/premium_photo-1707155466125-a7943a37e8f9?w=1600&auto=format&fit=crop&q=80)',
+            backgroundImage: 'url(https://plus.unsplash.com/premium_photo-1707155466125-a7943a37e8f9?w=1920&auto=format&fit=crop&q=85)',
             backgroundSize: 'cover',
-            backgroundPosition: 'center 20%',
+            backgroundPosition: 'center center',
           }}
         />
-        {/* Overlay violet-navy */}
+        {/* Overlay léger — image visible, texte lisible grâce aux ombres */}
         <div
           style={{
             position: 'absolute', inset: 0, zIndex: 1,
-            background: 'rgba(11,31,58,0.55)',
+            background: 'linear-gradient(to bottom, rgba(11,31,58,0.45) 0%, rgba(11,31,58,0.25) 50%, rgba(11,31,58,0.55) 100%)',
           }}
         />
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-16 sm:py-24 text-center" style={{ position: 'relative', zIndex: 2 }}>
           <h1
             className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
-            style={{ fontFamily: 'Space Grotesk', color: '#FFFFFF', letterSpacing: '-0.02em' }}
+            style={{ fontFamily: 'Space Grotesk', color: '#FFFFFF', letterSpacing: '-0.02em', textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
           >
             Trouvez le freelance
             <br /><span style={{
