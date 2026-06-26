@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" fill="none">
+  <defs>
+    <linearGradient id="g" x1="40" y1="10" x2="165" y2="205" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#176358"/>
+      <stop offset="55%"  stop-color="#1A8070"/>
+      <stop offset="100%" stop-color="#C49B35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Anneau principal -->
+  <circle cx="100" cy="108" r="78" stroke="url(#g)" stroke-width="4.5"/>
+
+  <!-- Étoile 4 branches — haut -->
+  <polygon points="100,12 103.5,24 100,30 96.5,24" fill="url(#g)"/>
+  <polygon points="100,12 112,17 100,30 88,17"      fill="url(#g)" opacity="0.85"/>
+
+  <!-- Pointe bas -->
+  <polygon points="100,204 103.5,192 100,186 96.5,192" fill="url(#g)"/>
+
+  <!-- Pointes latérales -->
+  <polygon points="18,108 28,104.5 32,108 28,111.5" fill="url(#g)"/>
+  <polygon points="182,108 172,104.5 168,108 172,111.5" fill="url(#g)"/>
+
+  <!-- Barre horizontale du T -->
+  <rect x="48" y="70" width="66" height="11" rx="3" fill="url(#g)"/>
+  <!-- Hampe verticale du T -->
+  <rect x="70" y="70" width="13" height="70" rx="3" fill="url(#g)"/>
+
+  <!-- Hampe verticale du B (partagée / superposée) -->
+  <rect x="89" y="70" width="13" height="70" rx="3" fill="url(#g)"/>
+  <!-- Bosse haute du B -->
+  <path d="M102 70 Q144 70 144 88.5 Q144 106 102 106"
+        stroke="url(#g)" stroke-width="11" stroke-linecap="round"/>
+  <!-- Bosse basse du B (légèrement plus large) -->
+  <path d="M102 106 Q150 106 150 124.5 Q150 140 102 140"
+        stroke="url(#g)" stroke-width="11" stroke-linecap="round"/>
+</svg>
