@@ -112,9 +112,9 @@ export default function LandingPage() {
             background: 'rgba(11,31,58,0.55)',
           }}
         />
-        <div className="w-full max-w-4xl mx-auto px-8 py-24 text-center" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-16 sm:py-24 text-center" style={{ position: 'relative', zIndex: 2 }}>
           <h1
-            className="text-5xl sm:text-6xl font-bold leading-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
             style={{ fontFamily: 'Space Grotesk', color: '#FFFFFF', letterSpacing: '-0.02em' }}
           >
             Trouvez le freelance
@@ -144,12 +144,13 @@ export default function LandingPage() {
               />
               <button
                 type="submit"
-                className="flex-shrink-0 flex items-center gap-2 px-6 py-4 font-bold text-sm transition-all"
-                style={{ backgroundColor: '#7C3AED', color: '#FFFFFF', fontFamily: 'Space Grotesk' }}
+                className="flex-shrink-0 flex items-center justify-center gap-2 px-4 sm:px-6 py-4 font-bold text-sm transition-all"
+                style={{ backgroundColor: '#7C3AED', color: '#FFFFFF', fontFamily: 'Space Grotesk', minWidth: 48 }}
                 onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#F5A623'; e.currentTarget.style.color = '#0B1F3A'; }}
                 onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#7C3AED'; e.currentTarget.style.color = '#FFFFFF'; }}
               >
-                Rechercher
+                <span className="hidden sm:inline">Rechercher</span>
+                <ArrowRight size={20} className="sm:hidden" />
               </button>
             </div>
 
@@ -212,37 +213,39 @@ export default function LandingPage() {
           </form>
 
           {/* ── Tags populaires ── */}
-          <div className="flex flex-nowrap items-center justify-center gap-2 mt-6 overflow-x-auto">
-            <span className="text-sm font-semibold" style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'Inter' }}>
-              Populaires :
-            </span>
-            {['React Native', 'Design UI/UX', 'WordPress', 'Marketing Digital', 'Comptabilité OHADA'].map(tag => (
-              <button
-                key={tag}
-                type="button"
-                onClick={() => { setQuery(tag); navigate('/client/resultats', { state: { description: tag } }); }}
-                className="px-4 py-1.5 rounded-full text-sm font-semibold transition-all"
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.15)',
-                  color: '#FFFFFF',
-                  border: '1.5px solid rgba(255,255,255,0.4)',
-                  fontFamily: 'Inter',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.backgroundColor = '#F5A623';
-                  e.currentTarget.style.color = '#0B1F3A';
-                  e.currentTarget.style.borderColor = '#F5A623';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)';
-                  e.currentTarget.style.color = '#FFFFFF';
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
-                }}
-              >
-                {tag}
-              </button>
-            ))}
+          <div className="mt-6 overflow-x-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}>
+            <div className="flex items-center gap-2 w-max mx-auto px-1">
+              <span className="text-sm font-semibold flex-shrink-0" style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'Inter' }}>
+                Populaires :
+              </span>
+              {['React Native', 'Design UI/UX', 'WordPress', 'Marketing Digital', 'Comptabilité OHADA'].map(tag => (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => { setQuery(tag); navigate('/client/resultats', { state: { description: tag } }); }}
+                  className="flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-semibold transition-all"
+                  style={{
+                    backgroundColor: 'rgba(255,255,255,0.15)',
+                    color: '#FFFFFF',
+                    border: '1.5px solid rgba(255,255,255,0.4)',
+                    fontFamily: 'Inter',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.backgroundColor = '#F5A623';
+                    e.currentTarget.style.color = '#0B1F3A';
+                    e.currentTarget.style.borderColor = '#F5A623';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)';
+                    e.currentTarget.style.color = '#FFFFFF';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
+                  }}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
