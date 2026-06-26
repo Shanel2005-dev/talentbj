@@ -4,10 +4,11 @@ import type { Freelance } from '../../types';
 import VerificationSeal from '../ui/VerificationSeal';
 import MatchScoreBadge from '../ui/MatchScoreBadge';
 
-const VERTICAL_LABELS = {
+const VERTICAL_LABELS: Record<string, string> = {
   developpement: 'Développement',
   design: 'Design',
   marketing: 'Marketing',
+  comptabilite: 'Comptabilité',
 };
 
 const BADGE_CONFIG = {

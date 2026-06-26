@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { AuthRole, StatutVerification } from '../types';
 
-interface AuthStore {
+export interface AuthStore {
   role: AuthRole;
   name: string | null;
   email: string | null;

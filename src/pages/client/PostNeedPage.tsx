@@ -42,7 +42,7 @@ interface LocationState {
 export default function PostNeedPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { role, email } = useAuthStore();
+  const { role } = useAuthStore();
   const { createMission, sendInvitation } = useMissionStore();
   const ctx = (location.state as LocationState) || {};
   const isEntreprise = location.pathname.startsWith('/entreprise');

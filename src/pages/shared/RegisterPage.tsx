@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { ArrowRight, ArrowLeft, Search, Briefcase, User, Building2, CheckCircle } from 'lucide-react';
 import VerificationSeal from '../../components/ui/VerificationSeal';
 import Button from '../../components/ui/Button';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore, type AuthStore } from '../../store/authStore';
 import type { AuthRole } from '../../types';
 
 type Step = 'choose' | 'client-form' | 'freelance-form';
@@ -173,7 +173,7 @@ function ClientForm({
 }: {
   onBack: () => void;
   navigate: ReturnType<typeof useNavigate>;
-  login: ReturnType<typeof useAuthStore>['login'];
+  login: AuthStore['login'];
 }) {
   const [clientType, setClientType] = useState<ClientType>('client');
   const [nom, setNom] = useState('');
@@ -347,7 +347,7 @@ function FreelanceForm({
 }: {
   onBack: () => void;
   navigate: ReturnType<typeof useNavigate>;
-  login: ReturnType<typeof useAuthStore>['login'];
+  login: AuthStore['login'];
 }) {
   const [nom, setNom] = useState('');
   const [email, setEmail] = useState('');
