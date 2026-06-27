@@ -105,11 +105,11 @@ export default function LandingPage() {
             backgroundPosition: 'center center',
           }}
         />
-        {/* Overlay léger — image visible, texte lisible grâce aux ombres */}
+        {/* Overlay très léger — image bien visible */}
         <div
           style={{
             position: 'absolute', inset: 0, zIndex: 1,
-            background: 'linear-gradient(to bottom, rgba(11,31,58,0.45) 0%, rgba(11,31,58,0.25) 50%, rgba(11,31,58,0.55) 100%)',
+            background: 'linear-gradient(to bottom, rgba(11,31,58,0.30) 0%, rgba(11,31,58,0.15) 40%, rgba(11,31,58,0.50) 100%)',
           }}
         />
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-16 sm:py-24 text-center" style={{ position: 'relative', zIndex: 2 }}>
