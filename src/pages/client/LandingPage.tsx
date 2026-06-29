@@ -146,7 +146,7 @@ export default function LandingPage() {
                 type="submit"
                 className="flex-shrink-0 flex items-center justify-center gap-2 px-4 sm:px-6 py-4 font-bold text-sm transition-all"
                 style={{ backgroundColor: '#F5A623', color: '#0B1F3A', fontFamily: 'Space Grotesk', minWidth: 48 }}
-                onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#E8960F'; e.currentTarget.style.color = '#0B1F3A'; }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#7C3AED'; e.currentTarget.style.color = '#FFFFFF'; }}
                 onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#F5A623'; e.currentTarget.style.color = '#0B1F3A'; }}
               >
                 <span className="hidden sm:inline">Rechercher</span>
