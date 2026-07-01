@@ -85,7 +85,7 @@ export default function ClientDashboardPage() {
           </div>
         </div>
 
-        <div className="px-4 sm:px-8 pb-16" style={{ marginTop: -48 }}>
+        <div className="px-4 sm:px-8 pb-24 lg:pb-16" style={{ marginTop: -48 }}>
           {/* KPI cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {[

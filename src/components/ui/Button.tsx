@@ -39,10 +39,10 @@ const STYLES: Record<Variant, React.CSSProperties> = {
   },
 };
 
-const SIZE_STYLES: Record<Size, { padding: string; fontSize: number; height: number }> = {
-  sm: { padding: '6px 16px', fontSize: 13, height: 34 },
-  md: { padding: '10px 24px', fontSize: 14, height: 42 },
-  lg: { padding: '14px 32px', fontSize: 16, height: 52 },
+const SIZE_STYLES: Record<Size, { padding: string; fontSize: number; minHeight: number }> = {
+  sm: { padding: '6px 16px', fontSize: 13, minHeight: 34 },
+  md: { padding: '10px 24px', fontSize: 14, minHeight: 42 },
+  lg: { padding: '14px 32px', fontSize: 16, minHeight: 52 },
 };
 
 export default function Button({
@@ -68,7 +68,7 @@ export default function Button({
         borderRadius: 100,
         padding: sz.padding,
         fontSize: sz.fontSize,
-        height: sz.height,
+        minHeight: sz.minHeight,
         fontFamily: 'Space Grotesk, sans-serif',
         opacity: disabled || loading ? 0.6 : 1,
         cursor: disabled || loading ? 'not-allowed' : 'pointer',
