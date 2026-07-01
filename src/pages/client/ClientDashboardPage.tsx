@@ -115,14 +115,14 @@ export default function ClientDashboardPage() {
 
           {/* Missions */}
           <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: '#fff', border: '1px solid #E8E4DC' }}>
-            <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: '1px solid #F7F3EC', backgroundColor: '#FEFDFB' }}>
-              <h2 className="font-bold" style={{ fontFamily: 'Space Grotesk', color: '#0B1F3A' }}>Mes missions</h2>
-              <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 px-4 sm:px-6 py-4" style={{ borderBottom: '1px solid #F7F3EC', backgroundColor: '#FEFDFB' }}>
+              <h2 className="font-bold flex-shrink-0" style={{ fontFamily: 'Space Grotesk', color: '#0B1F3A' }}>Mes missions</h2>
+              <div className="flex gap-2 overflow-x-auto pb-0.5">
                 {(['all', 'en_cours', 'ouverte', 'validee'] as const).map(t => (
                   <button
                     key={t}
                     onClick={() => setTabFilter(t)}
-                    className="px-3 py-1 rounded-full text-xs font-bold transition-all"
+                    className="px-3 py-1 rounded-full text-xs font-bold transition-all flex-shrink-0"
                     style={{
                       backgroundColor: tabFilter === t ? '#0B1F3A' : '#F7F3EC',
                       color: tabFilter === t ? '#F5A623' : '#5C6B7A',
