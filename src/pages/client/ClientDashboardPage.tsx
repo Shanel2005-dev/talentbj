@@ -63,7 +63,7 @@ export default function ClientDashboardPage() {
     <div className="flex min-h-screen" style={{ backgroundColor: '#F7F3EC' }}>
       <DashboardSidebar />
 
-      <div className="flex-1">
+      <div className="flex-1 min-w-0 overflow-x-hidden">
         {/* Header */}
         <div style={{ backgroundColor: '#0B1F3A' }} className="px-4 sm:px-8 pt-6 sm:pt-8 pb-16">
           <div className="flex items-center justify-between">
