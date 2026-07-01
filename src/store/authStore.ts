@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import type { AuthRole, StatutVerification } from '../types';
 
 export interface AuthStore {
@@ -12,14 +13,19 @@ export interface AuthStore {
   logout: () => void;
 }
 
-export const useAuthStore = create<AuthStore>((set) => ({
-  role: null,
-  name: null,
-  email: null,
-  freelanceId: null,
-  statutVerification: null,
-  login: (role, name, email, freelanceId, statutVerification) =>
-    set({ role, name, email, freelanceId: freelanceId ?? null, statutVerification: statutVerification ?? null }),
-  setStatutVerification: (s) => set({ statutVerification: s }),
-  logout: () => set({ role: null, name: null, email: null, freelanceId: null, statutVerification: null }),
-}));
+export const useAuthStore = create<AuthStore>()(
+  persist(
+    (set) => ({
+      role: null,
+      name: null,
+      email: null,
+      freelanceId: null,
+      statutVerification: null,
+      login: (role, name, email, freelanceId, statutVerification) =>
+        set({ role, name, email, freelanceId: freelanceId ?? null, statutVerification: statutVerification ?? null }),
+      setStatutVerification: (s) => set({ statutVerification: s }),
+      logout: () => set({ role: null, name: null, email: null, freelanceId: null, statutVerification: null }),
+    }),
+    { name: 'talentbj-auth' }
+  )
+);

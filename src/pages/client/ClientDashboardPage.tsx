@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Plus, TrendingUp, Clock, CheckCircle, Briefcase, Mail, ChevronRight, Users } from 'lucide-react';
 import EscrowTimeline from '../../components/ui/EscrowTimeline';
@@ -35,7 +35,11 @@ export default function ClientDashboardPage() {
   const missions = allMissions.filter(m => m.clientId === 'c01');
   const [tabFilter, setTabFilter] = useState<'all' | 'en_cours' | 'ouverte' | 'validee'>('all');
 
-  if (!role) { navigate('/connexion'); return null; }
+  useEffect(() => {
+    if (!role) navigate('/connexion');
+  }, [role, navigate]);
+
+  if (!role) return null;
 
   if (role !== 'client' && role !== 'entreprise') {
     return (
