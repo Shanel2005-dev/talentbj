@@ -65,7 +65,7 @@ export default function ClientDashboardPage() {
 
       <div className="flex-1">
         {/* Header */}
-        <div style={{ backgroundColor: '#0B1F3A' }} className="px-8 pt-8 pb-16">
+        <div style={{ backgroundColor: '#0B1F3A' }} className="px-4 sm:px-8 pt-6 sm:pt-8 pb-16">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm mb-1" style={{ color: 'rgba(247,243,236,0.5)', fontFamily: 'Inter' }}>
@@ -81,7 +81,7 @@ export default function ClientDashboardPage() {
           </div>
         </div>
 
-        <div className="px-8 pb-16" style={{ marginTop: -48 }}>
+        <div className="px-4 sm:px-8 pb-16" style={{ marginTop: -48 }}>
           {/* KPI cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {[
@@ -150,7 +150,7 @@ export default function ClientDashboardPage() {
                     <Link
                       key={mission.id}
                       to={missionLink(mission.id, mission.statut)}
-                      className="block px-6 py-4 transition-colors"
+                      className="block px-3 sm:px-6 py-4 transition-colors"
                       style={{ textDecoration: 'none' }}
                       onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#FEFDFB')}
                       onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}

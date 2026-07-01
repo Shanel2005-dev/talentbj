@@ -10,21 +10,26 @@ export default function EscrowTimeline({ etapes, compact = false }: EscrowTimeli
   const completedCount = etapes.filter(e => e.complete).length;
   const progressPct = (completedCount / (etapes.length - 1)) * 100;
 
+  const nodeSize = compact ? 28 : 32;
+  const trackTop = compact ? 14 : 16;
+
   return (
-    <div className={compact ? 'py-2' : 'py-4'}>
+    <div className={compact ? 'py-1' : 'py-4'} style={{ overflow: 'hidden' }}>
       {/* Progress bar track */}
-      <div className="relative">
+      <div className="relative" style={{ minWidth: 0 }}>
         {/* Base track */}
         <div
-          className="absolute top-4 left-0 right-0 h-0.5 mx-8"
-          style={{ backgroundColor: '#E5E7EB' }}
+          className="absolute left-0 right-0 h-0.5"
+          style={{ backgroundColor: '#E5E7EB', top: trackTop, marginLeft: nodeSize / 2, marginRight: nodeSize / 2 }}
         />
         {/* Active track */}
         <div
-          className="absolute top-4 left-0 h-0.5 mx-8 transition-all duration-700"
+          className="absolute left-0 h-0.5 transition-all duration-700"
           style={{
             backgroundColor: '#1FAE7A',
-            width: `calc(${Math.min(progressPct, 100)}% - 4rem)`,
+            top: trackTop,
+            marginLeft: nodeSize / 2,
+            width: `calc(${Math.min(progressPct, 100)}% - ${nodeSize}px)`,
           }}
         />
 
@@ -35,23 +40,16 @@ export default function EscrowTimeline({ etapes, compact = false }: EscrowTimeli
             const isCurrent = !isComplete && index === completedCount;
 
             return (
-              <div key={etape.etape} className="flex flex-col items-center gap-2">
+              <div key={etape.etape} className="flex flex-col items-center gap-1">
                 {/* Node */}
                 <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 z-10"
+                  className="rounded-full flex items-center justify-center font-bold transition-all duration-500 z-10"
                   style={{
-                    backgroundColor: isComplete
-                      ? '#1FAE7A'
-                      : isCurrent
-                      ? '#F5A623'
-                      : '#F7F3EC',
-                    border: isComplete
-                      ? '2.5px solid #1FAE7A'
-                      : isCurrent
-                      ? '2.5px solid #F5A623'
-                      : '2.5px solid #D1D5DB',
+                    width: nodeSize, height: nodeSize,
+                    backgroundColor: isComplete ? '#1FAE7A' : isCurrent ? '#F5A623' : '#F7F3EC',
+                    border: `2px solid ${isComplete ? '#1FAE7A' : isCurrent ? '#F5A623' : '#D1D5DB'}`,
                     color: isComplete || isCurrent ? '#fff' : '#9CA3AF',
-                    boxShadow: isCurrent ? '0 0 0 4px rgba(245,166,35,0.2)' : 'none',
+                    boxShadow: isCurrent ? '0 0 0 3px rgba(245,166,35,0.2)' : 'none',
                   }}
                 >
                   {isComplete ? (
@@ -60,7 +58,7 @@ export default function EscrowTimeline({ etapes, compact = false }: EscrowTimeli
                         strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   ) : (
-                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11 }}>
+                    <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: compact ? 10 : 11 }}>
                       {index + 1}
                     </span>
                   )}
